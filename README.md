@@ -8,7 +8,7 @@ It is a 2 step process:
 
 ## ATTENTION
 
-Coral board behaves strange when unplugged without shutdown, corrupting boot filesystem. Since you will be doing a lot of operations I recommend a [USB to Serial]()https://coral.ai/docs/dev-board-mini/serial-console// and monitoring Coral output all the time, this way you will connect easily to the board after flash/restarts.
+Coral board behaves strange when unplugged without shutdown, corrupting boot filesystem. Since you will be doing a lot of operations I recommend a [USB to Serial](https://coral.ai/docs/dev-board-mini/serial-console/) and monitoring Coral output all the time, this way you will connect easily to the board after flash/restarts.
 
 ## Prerequisites for CORAL
 
