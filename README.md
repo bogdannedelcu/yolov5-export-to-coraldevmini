@@ -26,6 +26,10 @@ sudo apt-get dist-upgrade
 sudo reboot now
 ```
 
+### OpenCV package
+
+The library opencv-python does not install by default on Coral so you must follow the steps bellow in order to succeed.
+
 install requirements.txt
 
 install OpenCV (opencv-python package) for Coral as described in this link: https://krakensystems.co/blog/2020/doing-machine-vision-on-google-coral  I did the steps in the Quick Solution chapter.
@@ -37,6 +41,13 @@ ALTERNATIVE: for OpenCV is to take 12 hours to compile it yourself as described 
 Use the foollowing [Google Collab](https://colab.research.google.com/drive/1BDX8bjOGyxl6xWFh8mXtheAi36DTa98S?usp=sharing) to transform the PyTorch model to a TFLite quantized. Credits to karanjakhar for the repository used in the Colab.
 
 ### Run the inference on Raspberry Pi
+
+
+| Image file  | Time on CPU F16 | Time on EdgeTPU F16  | Time on EdgeTPU Quantized  |
+|---|---|---|---|
+| bus.jpg|  3.2 | 6.2  | ?  |
+|   |   |   |   |
+|   |   |   |   |
 
 Just clone this repository and we are good to go:
 
