@@ -22,7 +22,13 @@ sudo apt-get dist-upgrade
 sudo reboot now
 ```
 
+install requirements.txt
 
+install opencv for Coral as described in this link: https://krakensystems.co/blog/2020/doing-machine-vision-on-google-coral  I did the steps in the Quick Solution chapter.
+
+Or take 12 hours to compile it yourself as described in this issue: https://github.com/google-coral/examples-camera/issues/76
+
+https://colab.research.google.com/drive/1BDX8bjOGyxl6xWFh8mXtheAi36DTa98S?usp=sharing
 
 ### Convert Model Weights to tflite
 
