@@ -1,12 +1,16 @@
 # YoloV5 export to Google Coral Dev Mini board
 
-It is a N step process:
+It is a 2 step process:
 
-1. Upgrade the board to latest version and all software packages
-1. Convert model weights to tflite
-2. Run the inference on Coral Dev Mini
+1. Flash and update your Coral Dev Mini to the most up to date version
+2. Transform the YoloV5s model to Edge Quantized version
+3. Run inference on Coral
 
-## Prerequisites
+## ATTENTION
+
+Coral board behaves strange when unplugged without shutdown, corrupting boot filesystem. Since you will be doing a lot of operations I recommend a [USB to Serial]()https://coral.ai/docs/dev-board-mini/serial-console// and monitoring Coral output all the time, this way you will connect easily to the board after flash/restarts.
+
+## Prerequisites for CORAL
 
 To make sure you have the right environment please flash the latest version [2020](https://coral.ai/software/#mendel-dev-board-mini) of the Google Coral Dev Mini board by following the steps [here](https://coral.ai/docs/dev-board-mini/reflash/).
 
@@ -24,37 +28,13 @@ sudo reboot now
 
 install requirements.txt
 
-install opencv for Coral as described in this link: https://krakensystems.co/blog/2020/doing-machine-vision-on-google-coral  I did the steps in the Quick Solution chapter.
+install OpenCV (opencv-python package) for Coral as described in this link: https://krakensystems.co/blog/2020/doing-machine-vision-on-google-coral  I did the steps in the Quick Solution chapter.
 
-Or take 12 hours to compile it yourself as described in this issue: https://github.com/google-coral/examples-camera/issues/76
+ALTERNATIVE: for OpenCV is to take 12 hours to compile it yourself as described in this issue: https://github.com/google-coral/examples-camera/issues/76
 
-https://colab.research.google.com/drive/1BDX8bjOGyxl6xWFh8mXtheAi36DTa98S?usp=sharing
+## Transform the YoloV5 model to run on EdgeTPU
 
-### Convert Model Weights to tflite
-
-
-Convert
-
-##### And if you want to perform the conversion on your system then follow bellow instructions:
-
-I recommend create a new conda environment for this as we need python==3.7.0 for this: 
-
-```
-conda create -n yolov5_env python==3.7.0
-conda activate yolov5_env
-```
-
-Then run below commands and replace **yolov5s.pt** with your own model path and also change **yolov5s.yaml** accordingly. 
-
-```bash
-git clone https://github.com/karanjakhar/yolov5.git
-cd yolov5
-pip3 install tensorflow==2.3.1
-pip install -r requirements.txt
-python3 models/tf.py --weight yolov5s.pt --cfg models/yolov5s.yaml --img 416 
-```
-
-
+Use the foollowing [Google Collab](https://colab.research.google.com/drive/1BDX8bjOGyxl6xWFh8mXtheAi36DTa98S?usp=sharing) to transform the PyTorch model to a TFLite quantized. Credits to karanjakhar for the repository used in the Colab.
 
 ### Run the inference on Raspberry Pi
 
