@@ -10,10 +10,15 @@ It is a 2 step process:
 
 Coral board behaves strange when unplugged without shutdown, corrupting boot filesystem. Since you will be doing a lot of operations I recommend a [USB to Serial](https://coral.ai/docs/dev-board-mini/serial-console/) and monitoring Coral output all the time, this way you will connect easily to the board after flash/restarts.
 
-Coral board has only 2G of RAM and 8G of storage. I strongly recommend to download the packages on a USB stick and add a swap file to the board on a separate SD card. I used a 8GB USB stick and another 8GB SD card for Swap. If you get disk full messages I recommend to restart that operation from scratch after adding more space to the device.
+### Add SWAP!
+Coral board has only 2G of RAM and 8G of storage. I strongly recommend to download the packages on a USB stick and add a swap file to the board on a separate SD card. 
 
 To add swap file to Coral Dev Mini please follow the instructions bellow.
 https://github.com/f0cal/google-coral/issues/61
+
+### Add SPACE
+I used a 8GB USB stick and another 8GB SD card for Swap. If you get disk full messages I recommend to restart that operation from scratch after adding more space to the device.
+
 
 ## Prerequisites for CORAL
 
