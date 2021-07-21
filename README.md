@@ -39,7 +39,7 @@ install OpenCV (opencv-python package) for Coral as described in this link: http
 
 ALTERNATIVE: for OpenCV is to take 12 hours to compile it yourself as described in this issue: https://github.com/google-coral/examples-camera/issues/76
 
-
+### PyTorch package
 
 To build pytorch as tutorial (24h in my case) my advice is to  use "screen" to keep a long running session open.
 
@@ -56,7 +56,7 @@ to reconnect a running session.
 
 Now prepare for a 24 hours journey, start your screen and a separate shell to monitor the board.
 
-This will enable only 3 parallel CCL to be executed in the installation of python packages. In mytests this is confortable for the 2G memory available.
+Setting MAX_JOBS  will enable only 3 parallel CCL to be executed in the installation of python packages. In my tests this is confortable for the 2G memory available.
 
 Credits to 
 https://stackoverflow.com/questions/63047424/how-to-install-pytorch-in-coral-dev-board, I just added the EXPORT command.
@@ -94,6 +94,7 @@ After some time it compiles and reaches batch_norm_kernel.cpp file so please set
 Install other requirements
 
 ```
+pip3 install numpy
 pip3 install pandas # prepare to wait 3 hours
 pip3 install tqdm # aprox 10 minutes
 ```
@@ -136,7 +137,7 @@ Now copy the model and the images in the yolov5 folder and start detecting:
 detect.py --weight yolov5s-int8_edgetpu_416.tflite --img 416 --tfl-int8 --tfl-detect --source bus.jpg --edgetpu
 ```
 
-
+DISCLAIMER: I updated the tf-edgetpu branch of the YoloV5 repository to use only tflite and pycoral packages, as tensorflow is not available on the board.
 
 ## Transform the YoloV5 model to run on EdgeTPU (OPTIONAL)
 
