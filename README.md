@@ -152,6 +152,13 @@ Use the foollowing [Google Collab](https://colab.research.google.com/drive/1BDX8
 
 | Image file  | Time on CPU F16 | Time on EdgeTPU F16  | Time on EdgeTPU Quantized 416px | Time on EdgeTPU Quantized 224px |
 |---|---|---|---| --- |
-| bus.jpg|  3.2 | 6.2  | 0.6  |  0.3 |
+| bus.jpg - run once|  3.2 | 6.2  | 0.6  |  0.3 |
+| bus.jpg - run 100 times|  3.2 | 6.2  | 0.38  |  0.14 |
+
+* time averaged after 1 and respective 100 interpreter.invoke() calls
+
+My conclusion, on a Coral Dev Board Mini EdgeTPU Quantized model compiled and run we get :
+- at 224x224 image size a 7FPS
+- at 416x416 image size a 2.6FPS (less operations run on EdgeTPU than at 224x224)
 
 I included in the repository some images of the output on 224 and 416 pixels and also the conversion report from edgetpu_compiller for both versions. There are some layers in the NN which are not converted due to compatibility and size (416 is worse than 224)
