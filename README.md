@@ -35,8 +35,6 @@ sudo reboot now
 
 The library opencv-python does not install by default on Coral so you must follow the steps bellow in order to succeed.
 
-install requirements.txt
-
 install OpenCV (opencv-python package) for Coral as described in this link: https://krakensystems.co/blog/2020/doing-machine-vision-on-google-coral  I did the steps in the Quick Solution chapter.
 
 ALTERNATIVE: for OpenCV is to take 12 hours to compile it yourself as described in this issue: https://github.com/google-coral/examples-camera/issues/76
@@ -131,7 +129,14 @@ git clone https://github.com/bogdannedelcu/yolov5/
 cd yolov5
 git checkout tf-edgetpu
 
+
 ```
+Now copy the model and the images in the yolov5 folder and start detecting:
+```
+detect.py --weight yolov5s-int8_edgetpu_416.tflite --img 416 --tfl-int8 --tfl-detect --source bus.jpg --edgetpu
+```
+
+
 
 ## Transform the YoloV5 model to run on EdgeTPU (OPTIONAL)
 
@@ -144,43 +149,7 @@ Use the foollowing [Google Collab](https://colab.research.google.com/drive/1BDX8
 | bus.jpg|  3.2 | 6.2  | 0.6  |  0.3 |
 
 
-
-Just clone this repository and we are good to go:
-
-```bash
-git clone https://github.com/karanjakhar/yolov5-export-to-raspberry-pi.git
-cd yolov5-export-to-raspberry-pi
-chmod +x setup.sh
-./setup.sh
-python3 yolov5_tflite_folder_of_images_inference.py --weights yolov5s-fp16.tflite --folder_path images/ 
-```
-
-Move your own model tflite file to raspberry pi and use that with above command. 
-
-
-
-**yolov5_tflite_inference.py**   this file contains main inference code which you can use with your own project. 
-
-Other files show examples how to use it. I have placed a tflite file and some sample images to run a quick test. 
-
-
-
-
-
-**To Run Examples:** 
-
-For webcam:
-
-`python3 yolov5_tflite_webcam_inference.py -w yolov5s-fp16.tflite  `
-
-For image:
-
-`python3 yolov5_tflite_image_inference.py -w yolov5s-fp16.tflite -i images/bus.jpg`
-
-For video:
-
-`python3 yolov5_tflite_video_inference.py -w yolov5s-fp16.tflite -v <your video path>`
-
-For folder of images:
-
-`python3 yolov5_tflite_folder_of_images_inference.py -w yolov5s-fp16.tflite -f images/`
+![Bus 224]/bus 224.jpg)
+![Bus 416](/bus 416.jpg)
+![Zidane 224](/zidane 224.jpg)
+![Zidane 416](/zidane 416.jpg)
