@@ -149,7 +149,3 @@ Use the foollowing [Google Collab](https://colab.research.google.com/drive/1BDX8
 | bus.jpg|  3.2 | 6.2  | 0.6  |  0.3 |
 
 
-![Bus 224]/bus 224.jpg)
-![Bus 416](/bus 416.jpg)
-![Zidane 224](/zidane 224.jpg)
-![Zidane 416](/zidane 416.jpg)
