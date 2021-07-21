@@ -149,4 +149,4 @@ Use the foollowing [Google Collab](https://colab.research.google.com/drive/1BDX8
 |---|---|---|---| --- |
 | bus.jpg|  3.2 | 6.2  | 0.6  |  0.3 |
 
-
+I included in the repository some images of the output on 224 and 416 pixels and also the conversion report from edgetpu_compiller for both versions. There are some layers in the NN which are not converted due to compatibility and size (416 is worse than 224)
