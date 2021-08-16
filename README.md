@@ -128,7 +128,7 @@ python3 setup.py install # this should take about 1 hour
 # Run the inference on Google Coral Mini
 
 ## Download pre-trained Quantized EdgeTPU weights cooked by me
-
+After tests it seems only the 96x96 image size fits the EdgeTPU memory on all operations. This however is giving low quality in my tests.
 ```
 git clone https://github.com/bogdannedelcu/yolov5-export-to-coraldevmini
 git clone https://github.com/bogdannedelcu/yolov5/
